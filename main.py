@@ -16,6 +16,17 @@ df_credit.shape
 df_credit.describe()
 df_credit['default.payment.next.month'].value_counts()
 
+# Example: Histogram of a numerical variable
+num_i = 6
+plt.figure(figsize=(8, 6))
+#plt.hist(df_credit['PAY_AMT6'], bins=20, color='skyblue', edgecolor='black')
+plt.scatter(df_credit['BILL_AMT'+str(num_i)], df_credit['PAY_AMT'+str(num_i)], color='orange', alpha=0.5)
+plt.title('Histogram of BILL_AMT'+str(num_i)+'& PAY_AMT'+str(num_i))
+plt.xlabel('BILL_AMT'+str(num_i))
+plt.ylabel('PAY_AMT'+str(num_i))
+plt.grid(True)
+plt.show()
+
 (1e2 * df_credit.isnull().sum()/len(df_credit)).plot(kind='barh')
 plt.xlim(0, 10**2)
 plt.grid();
